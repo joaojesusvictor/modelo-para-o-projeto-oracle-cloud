@@ -7,6 +7,7 @@ import {
   View 
 } from 'react-native';
 import Historico from './componentes/Historico';
+import SearchWeather from './componentes/SearchWeather';
 
 // import { armazenarNoHistorico }  from './service/OracleCloudService'
 
@@ -14,7 +15,8 @@ import * as oracleCloudService from './service/OracleCloudService'
 
 export default function App() {
   return(
-    <Historico />
+    // <Historico />
+    <SearchWeather />
   )
 }
 
