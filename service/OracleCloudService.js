@@ -9,3 +9,7 @@ const oracleCloudInstance = axios.create({
 export const armazenarNoHistorico = (item) => {
   return oracleCloudInstance.post('/fatec_ipi_202022_pdm_noite_tb_historico/', item)
 }
+
+export const obterHistorico = () => {
+  return oracleCloudInstance.get('/fatec_ipi_202022_pdm_noite_tb_historico/')
+}
