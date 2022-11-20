@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 import { obterHistorico } from '../service/OracleCloudService'
 
-const Historico = () => {
+const Historico = ({navigation}) => {
   const [itens, setItens] = useState([])
   useEffect(() => {
     const vai = async () => {
@@ -16,7 +16,7 @@ const Historico = () => {
   return (
     <View>
       {
-       itens.map(item => <Text key={item.cod_historico}>{item.cidade}</Text>) 
+       itens.map(item => <Text key={item.cod_historico}>{item.cidade} {item.data} {item.link}</Text>)
       }
     </View>
   )
