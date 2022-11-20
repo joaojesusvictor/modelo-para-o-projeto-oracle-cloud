@@ -5,7 +5,6 @@ const oracleCloudInstance = axios.create({
   headers: {'Content-Type': 'application/json'}
 })
 
-
 export const armazenarNoHistorico = (item) => {
   return oracleCloudInstance.post('/fatec_ipi_202022_pdm_noite_tb_historico/', item)
 }
