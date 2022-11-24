@@ -58,11 +58,18 @@ const SearchWeather = ({ navigation }) => {
   }
   return (
     <>
-      <Input
-        placeholder='Digite a cidade'
-        style={styles.textInput}
-        onChangeText={(cidade) => setCidade(cidade)}
-      />
+      <View style={styles.inputContainer}>
+        <Input
+          placeholder='Digite a cidade'
+          style={styles.textInput}
+          onChangeText={(cidade) => setCidade(cidade)}
+        />
+        <Button
+          title='Buscar'
+          buttonStyle={styles.button}
+          onPress={() => buscar()}
+        />
+      </View>
       <SafeAreaView style={styles.container}>
         <FlatList
           data={itens}
@@ -74,7 +81,7 @@ const SearchWeather = ({ navigation }) => {
 
                 <ListItem.Content style={{ left: '40%' }}>
                   <ListItem.Title style={{ color: 'red' }}>
-                  {p.item.dt_txt}
+                    {p.item.dt_txt}
                   </ListItem.Title>
                   <ListItem.Subtitle>Temp Max: {p.item.main.temp_max}{`\u00B0`}</ListItem.Subtitle>
                 </ListItem.Content>
@@ -89,11 +96,6 @@ const SearchWeather = ({ navigation }) => {
           )}
         />
       </SafeAreaView>
-      <Button
-        title='Buscar'
-        buttonStyle={styles.button}
-        onPress={() => buscar()}
-      />
     </>
   )
 }
@@ -136,8 +138,9 @@ const styles = StyleSheet.create({
     borderColor: "transparent",
     borderWidth: 0,
     borderRadius: 100,
-    width: "20%",
-    alignSelf: 'center'
+    width: "90%",
+    alignSelf: 'center',
+    marginLeft: 10
   },
   container: {
     flex: 1,
@@ -152,4 +155,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
   },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '97%',
+  }
 })
