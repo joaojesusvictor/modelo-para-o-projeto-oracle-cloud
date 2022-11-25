@@ -82,7 +82,7 @@ const SearchWeather = ({ navigation }) => {
               <ListItem style={styles.ListItem}>
                 <Avatar title="Icone" source={{ uri: `http://openweathermap.org/img/wn/${p.item.weather[0].icon}.png` }} />
                 <ListItem.Content center>
-                  <ListItem.Subtitle center>{p.item.dt_txt}</ListItem.Subtitle>
+                  <ListItem.Subtitle center>{format(new Date(p.item.dt_txt), 'dd/MM/yyyy HH:mm')}</ListItem.Subtitle>
                 </ListItem.Content>
 
                 <ListItem.Content right>
@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '90%'
+    width: '50%',
+    margin: 'auto'
   }
 })
