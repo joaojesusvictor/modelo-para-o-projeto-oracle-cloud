@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { ListItem, Avatar } from '@rneui/themed'
+import { format } from 'date-fns'
 
 import { obterHistorico } from '../service/OracleCloudService'
 
@@ -34,11 +35,11 @@ const Historico = ({ navigation }) => {
               <ListItem >
 
                 <ListItem.Content>
-                  <ListItem.Subtitle>{item.data}</ListItem.Subtitle>
+                  <ListItem.Subtitle>{format(new Date(item.data), 'dd/MM')}</ListItem.Subtitle>
                 </ListItem.Content>
 
                 <ListItem.Content>
-                  <ListItem.Subtitle right>{item.cidade}</ListItem.Subtitle>
+                  <ListItem.Subtitle>{item.cidade}</ListItem.Subtitle>
                 </ListItem.Content>
 
                 <Avatar title="IconeHistorico" source={{ uri: item.link }} />

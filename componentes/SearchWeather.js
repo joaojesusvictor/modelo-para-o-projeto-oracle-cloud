@@ -5,16 +5,18 @@ import {
   Text,
   View,
   SafeAreaView,
-  StatusBar
+  StatusBar,
+  Alert
 } from 'react-native'
 import {
   Button,
   Card,
   Input
-} from '@rneui/themed-edge'
+} from '@rneui/base'
 import React, { useState } from 'react'
 import { obterPrevisoes } from '../service/WeatherMapService'
 import { ListItem, Avatar } from '@rneui/themed'
+import { format } from 'date-fns'
 
 import * as oracleCloudService from '../service/OracleCloudService'
 
@@ -54,6 +56,7 @@ const SearchWeather = ({ navigation }) => {
       })
       .catch(erro => {
         console.log('erro', erro)
+        Alert.alert('Cidade não encontrada! Por favor, pesquise outra.')
       })
   }
   return (
@@ -81,7 +84,7 @@ const SearchWeather = ({ navigation }) => {
 
                 <ListItem.Content style={{ left: '40%' }}>
                   <ListItem.Title style={{ color: 'red' }}>
-                    {p.item.dt_txt}
+                    {format(new Date(p.item.dt_txt), 'dd/MM/yyyy HH:mm')}
                   </ListItem.Title>
                   <ListItem.Subtitle>Temp Max: {p.item.main.temp_max}{`\u00B0`}</ListItem.Subtitle>
                 </ListItem.Content>
