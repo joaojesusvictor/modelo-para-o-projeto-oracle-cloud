@@ -57,59 +57,15 @@ const Historico = ({ navigation }) => {
 export default Historico
 
 const styles = StyleSheet.create({
-  textInput: {
-    textAlign: 'center',
-    margin: 0,
-    padding: 0
-  },
-  card: {
-    marginBottom: 8
-  },
-  tela: {
-    flexDirection: 'row'
-  },
-  imagem: {
-    width: 50,
-    height: 50
-  },
-  primeiraLinha: {
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
-  segundaLinha: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 6,
-    borderTopWidth: 1,
-    borderTopColor: '#DDD'
-  },
-  valor: {
-    marginHorizontal: 2
-  },
-  button: {
-    backgroundColor: "#00bfff",
-    borderColor: "transparent",
-    borderWidth: 0,
-    borderRadius: 100,
-    width: "20%",
-    alignSelf: 'center'
-  },
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+    backgroundColor: '#f7794d',
+    padding: 8,
+    borderRadius: 15,
+    marginVertical: 15,
+    marginHorizontal: 8,
   },
-  title: {
-    fontSize: 32,
-  },
-  content: {
-    flex: 1,
-    padding: 10,
-  }
 })

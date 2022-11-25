@@ -11,7 +11,7 @@ import {
 import {
   Button,
   Card,
-  Input
+  Input,
 } from '@rneui/base'
 import React, { useState } from 'react'
 import { obterPrevisoes } from '../service/WeatherMapService'
@@ -79,18 +79,18 @@ const SearchWeather = ({ navigation }) => {
           keyExtractor={item => item.dt}
           renderItem={p => (
             <View style={styles.item}>
-              <ListItem bottomDivider>
+              <ListItem style={styles.ListItem}>
                 <Avatar title="Icone" source={{ uri: `http://openweathermap.org/img/wn/${p.item.weather[0].icon}.png` }} />
-
-                <ListItem.Content style={{ left: '40%' }}>
-                  <ListItem.Title style={{ color: 'red' }}>
-                    {format(new Date(p.item.dt_txt), 'dd/MM/yyyy HH:mm')}
-                  </ListItem.Title>
-                  <ListItem.Subtitle>Temp Max: {p.item.main.temp_max}{`\u00B0`}</ListItem.Subtitle>
+                <ListItem.Content center>
+                  <ListItem.Subtitle center>{p.item.dt_txt}</ListItem.Subtitle>
                 </ListItem.Content>
 
                 <ListItem.Content right>
-                  <ListItem.Subtitle right>Temp Min: {p.item.main.temp_min}{`\u00B0`}</ListItem.Subtitle>
+                  <ListItem.Subtitle right>Max: {p.item.main.temp_max}{`\u00B0`}</ListItem.Subtitle>
+                </ListItem.Content>
+
+                <ListItem.Content right>
+                  <ListItem.Subtitle right>Min: {p.item.main.temp_min}{`\u00B0`}</ListItem.Subtitle>
                 </ListItem.Content>
 
                 {testeOracle(cidade, `http://openweathermap.org/img/wn/${p.item.weather[0].icon}.png`)}
@@ -108,60 +108,29 @@ export default SearchWeather
 const styles = StyleSheet.create({
   textInput: {
     textAlign: 'center',
-    margin: 0,
-    padding: 0
-  },
-  card: {
-    marginBottom: 8
-  },
-  tela: {
-    flexDirection: 'row'
-  },
-  imagem: {
-    width: 50,
-    height: 50
-  },
-  primeiraLinha: {
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
-  segundaLinha: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 6,
-    borderTopWidth: 1,
-    borderTopColor: '#DDD'
-  },
-  valor: {
-    marginHorizontal: 2
   },
   button: {
     backgroundColor: "#00bfff",
     borderColor: "transparent",
     borderWidth: 0,
     borderRadius: 100,
-    width: "90%",
-    alignSelf: 'center',
-    marginLeft: 10
+    alignSelf: 'center'
   },
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  title: {
-    fontSize: 32,
+    backgroundColor: '#f7794d',
+    padding: 8,
+    borderRadius: 15,
+    marginVertical: 15,
+    marginHorizontal: 8,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '97%',
+    width: '90%'
   }
 })
